@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<style type="text/css">
+			div#rect {
+				position: relative;
+				float: left;
+				width: 3em;
+				height: 2em;
+				background-color: red;
+				border-radius: 4px;
+				padding: 1em 1em 1em 1em;
+				display: block;
+			}
+			p{
+				clear: both;
+			}
+		</style>
+	</head>
 	<body>
-		<div>Hello World!</div>
+		<div id="rect">World!</div>
+		<div>
+			<p>This text will be flowed around the right side of the graphic.</p>
+		</div>
 	</body>
 </html>

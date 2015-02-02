@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>An image-map,with clickable area</title>
+		<style type="text/css">
+			.para{
+				text-align: center;
+			}
+			img{
+				border: 1px solid black;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div>
+			<p class="para">
+				<img id = "pic" src="images/pic.png" alt="site map" usemap="#sitemap" onclick="getxy(event)">
+				<map name="sitemap">
+					<area shape="circle" coords="38,22,14" href="https://www.facebook.com/" alt ="facebook" target="_blank">
+					<area shape="circle" coords="38,60,14" href="https://twitter.com/" alt="twitter" target="_blank">
+				</map>
+			</p>
+			
+			<p id="pos">IMG coors</p>
+		</div>
+		<script type="text/javascript">
+			//pic.addEventListener("click",getxy,false);
+			//get the position of image
+			function getxy(e){
+				//alert(e.currentTarget.nodeName);
+				var parentPosition = getPosition(e.currentTarget);
+				var xPosition = e.clientX - parentPosition.x;
+				var yPosition = e.clientY - parentPosition.y;
+				
+				
+				var pos = document.getElementById("pos");
+				var text = xPosition + " " + yPosition;
+				pos.innerHTML = text;
+				
+				console.log("hhhhh");
+			}
+			//get the position of specific element; 
+			function getPosition(elem){
+				var xPosition = 0;
+				var yPosition = 0;
+				
+				while(elem){
+					xPosition +=(elem.offsetLeft - elem.scrollLeft + elem.clientLeft);
+					yPosition +=(elem.offsetTop - elem.scrollTop + elem.clientTop);
+					elem = elem.offsetParent;
+				}
+				return{x:xPosition,y:yPosition};
+			}
+		</script>
+	</body>
+</html>
