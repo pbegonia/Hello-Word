@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		<div id ="div1">
+			<p>this is the first paragram</p>
+		</div>
+		<script type="text/javascript">
+			var para = document.createElement("p");
+			var text = document.createTextNode("this is the second paragram");
+			
+			para.appendChild(text);
+			
+			var element = document.getElementById("div1");
+			element.appendChild(para);
+		</script>
+	</body>
+</html>

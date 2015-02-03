@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>JS HTML DOM</title>
+		<style type="text/css">
+			button#btn{
+				background-color: yellow;
+				margin-bottom: 1em;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p id ="demo"></p>
+			<img id ="image" src="images/enter1.png">
+			<br>
+<!--			parameter should be defined beforehand, we will use event for parameter. and event.currentTarget refers this.-->
+			<button id="btn" onclick="displayDate(event)">The time is?</button>
+			<br>
+			<button id="btn1">use the eventlistener</button>
+			<p id ="demo1">mouse position</p>
+		</div>
+		<script type="text/javascript">
+			
+			//EventListener: pay attention for the function name.
+			document.getElementById("btn1").addEventListener("click",changecolor,false);
+			function changecolor(e){
+				console.log("hhhh");
+				this.style.backgroundColor = '#A5D9F3';
+				var text = e.clientX + " " + e.clientY;
+				document.getElementById("demo1").innerHTML = text;
+			}
+			
+			
+			document.getElementById("demo").innerHTML = "Hello!";//text
+			document.getElementById("demo").style.color = "blue";//style
+			document.getElementById("demo").style.backgroundColor = "green";
+			document.getElementById("image").src = "images/enter2.png";//attribute
+			
+			//this === e.currentTarget; this refer to the object, event carry all information of the event.
+			function displayDate(e){
+				var para = document.getElementById("demo");
+				para.innerHTML = Date();
+				e.currentTarget.innerHTML = "world!";
+				e.currentTarget.style.backgroundColor = '#A5D9F3';
+			}
+			
+			
+		</script>
+	</body>
+</html>

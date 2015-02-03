@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<!--		change the image when we hover of the link a-->
+		<style type="text/css">
+			body{
+				font-size: 100%;
+				font-family: cursive sans-serif;
+			}
+			div{
+				width: 100%;
+				display: block;
+				
+			}
+			table.t1{
+				width: 80%;
+				margin: auto;
+				text-align: center;
+/*				this attribute collapse the space between cells, try to remove it!*/
+				border-collapse: collapse;
+				
+				
+			}
+			table.t1 tr:nth-child(even){
+				background-color: #eee;
+			}
+			table.t1 tr:nth-child(odd){
+				background-color: #fff;
+			}
+			table caption{
+				color:white;
+				background-color: black;
+			}
+			td{
+				border: 1px solid #54dee3;
+/*				border-collapse: collapse;*/
+				padding: 10px;
+				
+			}
+			
+			a#ad:hover{
+				background-image: url(images/enter2.png);
+				background-repeat: no-repeat;
+				border:3em solid black;
+			}
+			a{
+				display: block;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<table class="t1">
+				<caption>students</caption>
+				<tr>
+					<td>Jill</td>
+					<td>Smith</td>
+					<td>50</td>
+				</tr>
+				<tr>
+					<td>Eve</td>
+					<td>Jackson</td>
+					<td>94</td>
+				</tr>
+			</table>
+		</div>
+		<div class="roll-over">
+			<a onmouseover='changeImg("enter","image2")' onmouseout='changeImg("enter","image1")'>
+				<img name = "enter" src="images/enter1.png" alt="click the image">
+			</a>
+			
+<!--			fail:script resposible to change.-->
+			<a id ="ad">
+				<img src ="images/enter1.png" alt="click the image">
+			</a>
+		</div>
+		<script type="text/javascript">
+			//need to create the image variables. 
+			if(document.images){
+				var image1 = new Image;
+				var image2 = new Image;
+				image1.src = "images/enter1.png";
+				image2.src = "images/enter2.png";
+			}
+			//when we click the <a>, the event will be triggered. change the src of image.
+			function changeImg(name,imgurl){
+				if(document.images){
+					document[name].src = eval(imgurl+".src");
+				}
+				console.log("hhhhh");
+			}
+		</script>
+	</body>
+</html>

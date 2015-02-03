@@ -15,8 +15,10 @@
 	<body>
 		<div>
 			<p class="para">
+<!--				if the parameter is not event or this, we should first define this variable-->
 				<img id = "pic" src="images/pic.png" alt="site map" usemap="#sitemap" onclick="getxy(event)">
 				<map name="sitemap">
+					<area shape="circle" coords="38,22,8" nohref>
 					<area shape="circle" coords="38,22,14" href="https://www.facebook.com/" alt ="facebook" target="_blank">
 					<area shape="circle" coords="38,60,14" href="https://twitter.com/" alt="twitter" target="_blank">
 				</map>
@@ -25,7 +27,6 @@
 			<p id="pos">IMG coors</p>
 		</div>
 		<script type="text/javascript">
-			//pic.addEventListener("click",getxy,false);
 			//get the position of image
 			function getxy(e){
 				//alert(e.currentTarget.nodeName);

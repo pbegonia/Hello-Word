@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	keep the image of sponsor change during a specific time.
+	<script type="text/javascript">
+		if (document.images) {
+			adImages = new Array("images/sponsor1.png", "images/sponsor2.png", "images/sponsor3.png");
+			adURLs = new Array("http://www.csail.mit.edu",
+				"http://www.ercim.org", "http://www.keio.ac.jp");
+			thisAd = 0;
+		}
+		function cycleAds(){
+			if(document.images){
+				if(document.adBanner.complete){
+					if(++thisAd == adImages.length){
+						thisAd = 0;
+					}
+					document.adBanner.src = adImages[thisAd];
+				}
+			}
+			setTimeout("cycleAds()",3000);
+		}
+		function gotoAd(){
+			document.location.href = adURLs[thisAd];
+		}
+	</script>
+</head>
+
+<body onload="cycleAds()">
+	<a href = "javascript:gotoAd()" target="_blank">
+		<img name = "adBanner" src="images/sponsor1.png" alt = "spansors">
+	</a>
+</body>
+
+</html>
